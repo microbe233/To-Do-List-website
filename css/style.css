@@ -1,0 +1,5 @@
+.fixed-dimension {
+    width: 468px;
+    height: 703px;
+    object-fit: cover; /* or 'contain', 'fill', 'scale-down' based on your requirement */
+}
