@@ -13,7 +13,7 @@ const Review = require('./models/review');
 
 
 
-mongoose.connect('mongodb+srv://omarmostafa082002:fYJQfn4bvGrSqFxF@to-do-list.a8971ys.mongodb.net/?retryWrites=true&w=majority&appName=To-Do-List/yelp-camp');
+mongoose.connect('mongodb+srv://omarmostafa082002:fYJQfn4bvGrSqFxF@to-do-list.a8971ys.mongodb.net/yelp-camp?retryWrites=true&w=majority&appName=To-Do-List');
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:")); 
