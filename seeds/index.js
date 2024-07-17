@@ -4,7 +4,9 @@ const {places,descriptors} = require('./seedHelpers');
 const accessKey = 'SeNxgw1o1D_e7FvWay_M-IC-N_zSl-xdH6JTHsISGsw';
 const Campground = require('../models/campground');
 
-mongoose.connect('mongodb+srv://omarmostafa082002:fYJQfn4bvGrSqFxF@to-do-list.a8971ys.mongodb.net/?retryWrites=true&w=majority&appName=To-Do-List/yelp-camp');
+//mongodb://localhost:27017/yelp-camp
+//mongodb+srv://omarmostafa082002:fYJQfn4bvGrSqFxF@to-do-list.a8971ys.mongodb.net/yelp-camp?retryWrites=true&w=majority&appName=To-Do-List
+mongoose.connect('mongodb+srv://omarmostafa082002:fYJQfn4bvGrSqFxF@to-do-list.a8971ys.mongodb.net/yelp-camp?retryWrites=true&w=majority&appName=To-Do-List');
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:")); 

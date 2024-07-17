@@ -4,9 +4,9 @@
 
     
 
-
+<!-- class = "col-6 offset-3" -->
 <div class="row">
-    <div class="col-6 offset-3">
+    <div class="col-6">
         <div class="card mb-3">
             <img src="<%= campground.image %>" class="card-img-top" alt="...">
             <div class="card-body">
@@ -28,25 +28,43 @@
               </div>
           </div>
 
-          <h2>Leave a Review</h2>
-          <form action="/campgrounds/<%= campground._id  %>/reviews" method="POST" class="mb-3">
+          
+    </div>
+    <div class="col-6">
+      <div class="container border rounded mb-4 shadow input-review">
+        <h2>Leave a Review</h2>
+        <form action="/campgrounds/<%= campground._id  %>/reviews" method="POST" class="mb-3 needs-validtion"  novalidate>
 
-            <div class="mb-3">
+          <div class="mb-3">
 
-              <label for="rating" class="form-label">Rating</label>
-              <input type="range" name="review[rating]" class="form-range" id="rating" min="1" max="5">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="range" name="review[rating]" class="form-range" id="rating" min="1" max="5">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="body">Reviews</label>
+            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="2" required></textarea>
+            <div class="valid-feedback">
+              Looks good!
+          </div>
+
+          </div>
+          <button class="btn btn-success">Submit</button>
+          
+        </form>
+
+        <% for(let review of campground.reviews){ %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <p> Rating: <%= review.rating %> </p>
+              <p> Review: <%= review.body %> </p>
+              <form action="/campgrounds/<%= campground._id  %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+                <button class="btn btn-sm btn-danger">Delete</button>
+              </form>
             </div>
-
-            <div class="mb-3">
-              <label class="form-label" for="body">Reviews</label>
-              <textarea class="form-control" name="review[body]" id="body" cols="30" rows="2">
-
-              </textarea>
-
-              
-            </div>
-            <button class="btn btn-success">Submit</button>
-            
-          </form>
+          </div>
+        
+      <% } %>
+      </div>
     </div>
 </div>
